@@ -1,7 +1,20 @@
 <h1><%= @mission.name %></h1>
 <p>Photos: </p>
-<ul>
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Altitude</th>
+  </tr>
   <% @mission.photos.each do |photo| %>
-    <li><%= link_to photo.name, mission_photo_path(@mission, photo) %></li>
+    <tr>
+      <th><%= image_tag(photo.thumbnail || "data:,") %></th>
+      <th><li><%= link_to photo.name, mission_photo_path(@mission, photo) %></li></th>
+      <th><%= photo.lat %></th>
+      <th><%= photo.lng %></th>
+      <th><%= photo.altitude %></th>
+    </tr>
   <% end %>
-</ul>
+</table>

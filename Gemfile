@@ -60,4 +60,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Extract exif data from images
 gem 'exifr', '~> 1.3.9'
+
+# required to enable variants (thumbnails) of images in activestorage
+gem 'image_processing'
