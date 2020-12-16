@@ -27,8 +27,6 @@ class ReadMissionDataJob < ApplicationJob
 
   private
 
-  # If it's not an image, don't upload
-
   def exif_gps(path)
     if gps = EXIFR::JPEG.new(path).exif&.fields[:gps]
       {
