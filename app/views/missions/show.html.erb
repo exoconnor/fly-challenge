@@ -1,0 +1,7 @@
+<h1><%= @mission.name %></h1>
+<p>Photos: </p>
+<ul>
+  <% @mission.photos.each do |photo| %>
+    <li><%= link_to photo.name, mission_photo_path(@mission, photo) %></li>
+  <% end %>
+</ul>
