@@ -15,7 +15,7 @@ class ReadMissionDataJob < ApplicationJob
       filter_set = mission.photos.pluck(:name).to_set
       Pathname(mission_dir).each_child do |photo_path|
         # NOTE(connor): only unique name X mission accepted
-        next if filter_set.member?(photo_path.basename)
+        next if filter_set.member?(photo_path.basename.to_s)
         photo = MissionPhoto.create!(
           { name: photo_path.basename.to_s, mission: mission }.merge(exif_gps(photo_path.to_path))
         )
